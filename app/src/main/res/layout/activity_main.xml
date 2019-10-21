@@ -3,5 +3,417 @@
      android:textAppearance="?android:attr/textAppearanceSmall" for TextViews
      style="@style/Base.TextAppearance.AppCompat.Headline" for EditTexts
      style="@style/Widget.AppCompat.Button.Borderless" for Buttons
--->
 
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.main.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/llFirst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.36">
+
+        <TextView
+            android:id="@+id/lblTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lblTotal"
+            android:textAlignment="textEnd"
+            android:textAppearance="?android:attr/textAppearanceSmall"></TextView>
+
+        <LinearLayout
+            android:id="@+id/llTotal2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/txtTotal"
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="none"
+                android:text="@string/defaultValue"
+                android:textAlignment="textEnd"></EditText>
+
+            <TextView
+                android:id="@+id/lblEuro3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/lblEuro"
+                android:textAlignment="textEnd"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="@dimen/eurosize"></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llBill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/lblBill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lblBill"
+            android:textAlignment="textEnd"
+            android:textAppearance="?android:attr/textAppearanceSmall"></TextView>
+
+        <LinearLayout
+            android:id="@+id/llBill2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/txtBill"
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:focusedByDefault="true"
+                android:digits=".0123456789"
+                android:inputType="numberDecimal"
+                android:text="@string/defaultValue"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@id/txtPercentage"
+                android:selectAllOnFocus="true"
+                android:textAlignment="textEnd"></EditText>
+
+            <TextView
+                android:id="@+id/lblEuro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/lblEuro"
+                android:textAlignment="textEnd"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="@dimen/eurosize"></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llSecond"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19999999">
+
+        <LinearLayout
+            android:id="@+id/llPercentage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lblPercentage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lblPercentage"
+                android:textAlignment="textEnd"
+                android:textAppearance="?android:attr/textAppearanceSmall"></TextView>
+
+            <LinearLayout
+                android:id="@+id/llPercentage2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtPercentage"
+                    style="@style/Base.TextAppearance.AppCompat.Headline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:digits=".0123456789"
+                    android:maxLength="6"
+                    android:inputType="numberDecimal"
+                    android:text="@string/defaultPer"
+                    android:imeOptions="actionNext"
+                    android:nextFocusDown="@id/txtDiners"
+                    android:selectAllOnFocus="true"
+                    android:textAlignment="textEnd"></EditText>
+
+                <TextView
+                    android:id="@+id/lblPercentageSign"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/lblPercentageSign"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="@dimen/eurosize"></TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llTip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lblTip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lblTip"
+                android:textAlignment="textEnd"
+                android:textAppearance="?android:attr/textAppearanceSmall"></TextView>
+
+            <LinearLayout
+                android:id="@+id/llTip2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtTip"
+                    style="@style/Base.TextAppearance.AppCompat.Headline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="none"
+                    android:text="@string/defaultValue"
+                    android:textAlignment="textEnd"></EditText>
+
+                <TextView
+                    android:id="@+id/lblEuro2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/lblEuro"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="@dimen/eurosize"></TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llRounded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.74">
+
+        <TextView
+            android:id="@+id/lblRounded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lblRounded"
+            android:textAlignment="textEnd"
+            android:textAppearance="?android:attr/textAppearanceSmall"></TextView>
+
+        <LinearLayout
+            android:id="@+id/llRounded2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/txtPerDinerRounded"
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="none"
+                android:text="@string/defaultValue"
+                android:textAlignment="textEnd"></EditText>
+
+            <TextView
+                android:id="@+id/lblEuro5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/lblEuro"
+                android:textAlignment="textEnd"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="@dimen/eurosize"></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnResetTip"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/btnReset"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47000003"></Button>
+
+    <LinearLayout
+        android:id="@+id/llThird"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58000004">
+
+        <LinearLayout
+            android:id="@+id/llDiners"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lblDiners"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lblDiners"
+                android:textAlignment="textEnd"
+                android:textAppearance="?android:attr/textAppearanceSmall"></TextView>
+
+            <LinearLayout
+                android:id="@+id/llDiners2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtDiners"
+                    style="@style/Base.TextAppearance.AppCompat.Headline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:inputType="numberSigned"
+                    android:text="@string/defaultDiners"
+                    android:maxLength="3"
+                    android:imeOptions="actionDone"
+                    android:digits="0123456789"
+                    android:selectAllOnFocus="true"
+                    android:textAlignment="textEnd"></EditText>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llPerDiner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lblPerDiner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lblPerDiner"
+                android:textAlignment="textEnd"
+                android:textAppearance="?android:attr/textAppearanceSmall"></TextView>
+
+            <LinearLayout
+                android:id="@+id/llPerDiner2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtPerDiner"
+                    style="@style/Base.TextAppearance.AppCompat.Headline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="none"
+                    android:text="@string/defaultValue"
+                    android:textAlignment="textEnd"></EditText>
+
+                <TextView
+                    android:id="@+id/lblEuro4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/lblEuro"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="@dimen/eurosize"></TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnResetDiners"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnReset"
+        android:textColor="@color/colorAccent"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"></Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
